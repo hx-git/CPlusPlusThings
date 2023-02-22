@@ -1,5 +1,5 @@
-#include<iostream>
-#include"apple.cpp"
+#include <iostream>
+#include "apple.cpp"
 using namespace std;
 
 Apple::Apple(int i):apple_number(i)
