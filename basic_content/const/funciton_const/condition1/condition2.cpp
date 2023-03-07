@@ -5,5 +5,6 @@ using namespace std;
 int main(){
     const int p = 10;
     const void *vp = &p;
-    void *vp = &p; //error
+    const int *vp1 = &p;
+    void *vp2 = &p; // error
 }

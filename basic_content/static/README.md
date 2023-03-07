@@ -55,7 +55,7 @@ int main()
 
 - 类中的静态变量
 
-由于声明为static的变量只被初始化一次，因为它们在单独的静态存储中分配了空间，因此类中的静态变量**由对象共享**。对于不同的对象，不能有相同静态变量的多个副本。也是因为这个原因，静态变量不能使用构造函数初始化。
+由于声明为static的变量只被初始化一次，因为它们在<font color=red>单独的静态存储</font>中分配了空间，因此类中的静态变量**由对象共享**。对于不同的对象，不能有相同静态变量的多个副本。也是因为这个原因，静态变量不能使用构造函数初始化。
 
 ```c++
 
@@ -77,7 +77,7 @@ int main()
 { 
 Apple obj1; 
 Apple obj2; 
-obj1.i =2; 
+obj1.i = 2; 
 obj2.i = 3; 
 	
 // prints value of i 
@@ -210,7 +210,7 @@ End of main
 Inside Destructor
 ```
 
-您可以清楚地看到输出的变化。现在，在main结束后调用析构函数。这是因为静态对象的范围是贯穿程序的生命周期。
+您可以清楚地看到输出的变化。现在，在main结束后调用析构函数。这是因为静态对象的范围是贯穿**程序的生命周期**。
 
 - 类中的静态函数
 
@@ -266,7 +266,6 @@ void sayHello()
     printf("%s", msg);
 }
 ```
-g++对于上面两个代码文件是可以正常编译并且打印Hello World!，但如果给source1.cpp中的msg加上static，则会导致undefined reference to 'msg'的编译错误：
 ```cpp
 // source1.cpp
 extern void sayHello();
@@ -277,3 +276,5 @@ int main()
     return 0;
 }
 ```
+
+g++对于上面两个代码文件是可以正常编译并且打印Hello World!，但如果给source1.cpp中的msg加上static，则会导致undefined reference to 'msg'的编译错误。

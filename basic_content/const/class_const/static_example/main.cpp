@@ -20,7 +20,7 @@ void Apple::take(int num) const
 int Apple::getCount() const
 {
     take(1);
-//    add(); //error
+//    add(); // error 不能调用非const函数
     return apple_number;
 }
 int main(){

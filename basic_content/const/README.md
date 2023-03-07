@@ -88,14 +88,19 @@ const int i,j=0 // error: uninitialized const ‘i’
 与指针相关的const有四种：
 
 ```c++
-const char * a; //指向const对象的指针或者说指向常量的指针。
-char const * a; //同上
-char * const a; //指向类型对象的const指针。或者说常指针、const指针。
-const char * const a; //指向const对象的const指针。
+const char * a; // 指向const对象的指针或者说指向常量的指针；
+				// a指向的值是个常量
+char const * a; // 同上
+
+char * const a; // 指向类型对象的const指针。或者说常指针、const指针。
+const char * const a; // 指向const对象的const指针。
 ```
 
 > **小结：** <br>
-> 如果*const*位于`*`的左侧，则const就是用来修饰指针所指向的变量，即指针指向为常量；<br>如果const位于`*`的右侧，*const*就是修饰指针本身，即指针本身是常量。
+>
+> 如果*const*位于`*`的左侧，则const就是用来修饰指针所指向的变量，即指针指向为常量；<br>
+>
+> 如果const位于`*`的右侧，*const*就是修饰指针本身，即指针本身是常量。
 
 具体使用如下：
 
@@ -103,7 +108,7 @@ const char * const a; //指向const对象的const指针。
 
 ```cpp
 const int *ptr;
-*ptr = 10; //error
+*ptr = 10; // error
 ```
 
 ptr是一个指向int类型const对象的指针，const定义的是int类型，也就是ptr所指向的对象类型，而不是ptr本身，所以ptr可以不用赋初始值。但是不能通过ptr去修改所指对象的值。
@@ -113,7 +118,7 @@ ptr是一个指向int类型const对象的指针，const定义的是int类型，�
 ```c++
 const int p = 10;
 const void * vp = &p;
-void *vp = &p; //error
+void *vp = &p; // error
 ```
 
 另外一个重点是：**允许把非const对象的地址赋给指向const对象的指针**。
@@ -123,7 +128,7 @@ void *vp = &p; //error
 ```c++
 const int *ptr;
 int val = 3;
-ptr = &val; //ok
+ptr = &val; // ok
 ```
 
 我们不能通过ptr指针来修改val的值，即使它指向的是非const对象!
