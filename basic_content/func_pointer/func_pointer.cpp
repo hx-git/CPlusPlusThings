@@ -15,7 +15,8 @@ using namespace std;
 void (*pFun)(int); 
 
 /**
- * @brief 代表一种新类型，不是变量！所以与上述的pFun不一样！
+ * @brief 代表一种新类型，不是变量
+ * 注意是一种类型，能代表pFun
  */
 typedef void (*func)(void);  
 
@@ -24,10 +25,11 @@ void myfunc(void)
     cout<<"asda"<<endl;
 }
 
-void glFun(int a){ cout<<a<<endl;} 
+void glFun(int a){ cout<<a<<endl;}
+
 int main(){
-    func pfun = myfunc;/*赋值*/  
-    pfun();/*调用*/  
+    func pfun = myfunc; /*赋值*/
+    pfun(); /*调用*/
     pFun = glFun; 
     (*pFun)(2); 
 }
