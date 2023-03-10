@@ -1,13 +1,5 @@
 # 深入浅出C++虚函数的vptr与vtable
 
-## 关于作者：
-
-个人公众号：
-
-![](../img/wechat.jpg)
-
-
-
 ## 1.基础理论
 
 为了实现虚函数，C ++使用一种称为虚拟表的特殊形式的后期绑定。该虚拟表是用于解决在动态/后期绑定方式的函数调用函数的查找表。虚拟表有时会使用其他名称，例如“vtable”，“虚函数表”，“虚方法表”或“调度表”。
@@ -79,7 +71,7 @@ class Derived: public Base
         }
         void fun2()
         {
-            cout << "DerivedClass::fun2()" << endl;
+            cout << "Derived::fun2()" << endl;
         }
         ~Derived(){};
 };
@@ -94,7 +86,7 @@ class Derived: public Base
 Fun getAddr(void* obj,unsigned int offset)
 {
     cout<<"======================="<<endl;
-    void* vptr_addr = (void *)*(unsigned long *)obj;  //64位操作系统，占8字节，通过*(unsigned long *)obj取出前8字节，即vptr指针
+    void* vptr_addr = (void *)*(unsigned long *)obj;  // 64位操作系统，占8字节，通过*(unsigned long *)obj取出前8字节，即vptr指针
     printf("vptr_addr:%p\n",vptr_addr);
     
     /**

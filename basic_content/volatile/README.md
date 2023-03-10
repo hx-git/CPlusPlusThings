@@ -1,9 +1,3 @@
-## 关于作者：
-
-个人公众号：
-
-![](../img/wechat.jpg)
-
 ## 1.volatile
 
 被 `volatile` 修饰的变量，在对其进行读写操作时，会引发一些**可观测的副作用**。而这些可观测的副作用，是由**程序之外的因素决定的**。
@@ -13,8 +7,8 @@
 假设要对一个设备进行初始化，此设备的某一个寄存器为0xff800000。
 
 ```c++
-int  *output = (unsigned  int *)0xff800000; //定义一个IO端口；  
-int   init(void)  
+int  *output = (unsigned int *)0xff800000; // 定义一个IO端口；  
+int  init(void)  
 {  
     int i;  
     for(i=0;i< 10;i++)
@@ -41,14 +35,14 @@ int main()
 {
     while(1)
     {
-    if(i) dosomething();
+     if(i) dosomething();
     }
 }
 
 /* Interrupt service routine */
 void IRS()
 {
-	i=1;
+	i = 1;
 }
 ```
 上面示例程序的本意是产生中断时，由中断服务子程序IRS响应中断，变更程序变量i，使在main函数中调用dosomething函数，但是，由于编译器判断在main函数里面没有修改过i，因此可能只执行一次对从i到某寄存器的读操作，然后每次if判断都只使用这个寄存器里面的“i副本”，导致dosomething永远不会被调用。如果将变量i加上volatile修饰，则编译器保证对变量i的读写操作都不会被优化，从而保证了变量i被外部程序更改后能及时在原程序中得到感知。
@@ -56,7 +50,7 @@ void IRS()
 （3）多线程应用中被多个任务共享的变量。
 当多个线程共享某一个变量时，该变量的值会被某一个线程更改，应该用 volatile 声明。作用是防止编译器优化把变量从内存装入CPU寄存器中，当一个线程更改变量后，未及时同步到其它线程中导致程序出错。volatile的意思是让编译器每次操作该变量时一定要从内存中真正取出，而不是使用已经存在寄存器中的值。示例如下：
 ```c++
-volatile  bool bStop=false;  //bStop 为共享全局变量  
+volatile  bool bStop = false;  // bStop 为共享全局变量  
 //第一个线程
 void threadFunc1()
 {
