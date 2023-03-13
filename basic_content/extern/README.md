@@ -1,11 +1,5 @@
 # extern "C"
 
-## 关于作者：
-
-个人公众号：
-
-![](../img/wechat.jpg)
-
 ## 1.C++与C编译区别
 
 在C++中常在头文件见到extern "C"修饰函数，那有什么作用呢？ 是用于C++链接在C语言模块中定义的函数。
@@ -21,20 +15,20 @@ C++虽然兼容C，但C++文件中函数编译后生成的符号与C语言生成
 C++调用C函数的例子: 引用C的头文件时，需要加`extern "C"`
 
 ```c++
-//add.h
+// add.h
 #ifndef ADD_H
 #define ADD_H
 int add(int x,int y);
 #endif
 
-//add.c
+// add.c
 #include "add.h"
 
 int add(int x,int y) {
     return x+y;
 }
 
-//add.cpp
+// add.cpp
 #include <iostream>
 #include "add.h"
 using namespace std;
@@ -47,7 +41,7 @@ int main() {
 编译：
 
 ```
-//Generate add.o file
+// Generate add.o file
 gcc -c add.c
 ```
 
