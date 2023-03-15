@@ -10,8 +10,8 @@ using namespace std;
  * (#)字符串操作符
  */
 ///===========================================
-#define exp(s) printf("test s is:%s\n",s)
-#define exp1(s) printf("test s is:%s\n",#s)
+#define exp(s) printf("test s is: %s\n",s)
+#define exp1(s) printf("test s is: %s\n",#s)
 
 #define exp2(s) #s 
 
@@ -21,9 +21,9 @@ using namespace std;
  *（##）符号连接操作符
  */
 ///===========================================
-#define expA(s) printf("前缀加上后的字符串为:%s\n",gc_##s)  //gc_s必须存在
+#define expA(s) printf("the text append prefix: %s\n",gc_##s)  //gc_s必须存在
 
-#define expB(s) printf("前缀加上后的字符串为:%s\n",gc_  ##  s)  //gc_s必须存在
+#define expB(s) printf("the text append prefix: %s\n",gc_  ##  s)  //gc_s必须存在
 
 #define gc_hello1 "I am gc_hello1"
 

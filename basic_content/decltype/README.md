@@ -1,11 +1,5 @@
 # decltype那些事
 
-## 关于作者：
-
-个人公众号：
-
-![](../img/wechat.jpg)
-
 ## 1.基本使用
 decltype的语法是:
 

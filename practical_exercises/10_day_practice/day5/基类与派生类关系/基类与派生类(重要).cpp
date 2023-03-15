@@ -1,21 +1,27 @@
 #include <iostream>
+
 using namespace std;
+
 class A {
     int a;
 public: 
     void setA(int x){ a=x; }
     int getA(){ return a;} 
-}; 
+};
+
 class B:public A{
     int b;
 public: 
     void setB(int x){ b=x; }
     int getB(){ return b;} 
 };
+
 void f1(A a, int x)
-{ a.setA(x); }      
+{ a.setA(x); }
+
 void f2(A *pA, int x)
 { pA->setA(x); }
+
 void f3(A &rA, int x)
 { rA.setA(x); }
 

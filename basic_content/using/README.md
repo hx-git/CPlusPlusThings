@@ -1,10 +1,4 @@
 # using那些事
-## 关于作者：
-
-个人公众号：
-
-![](../img/wechat.jpg)
-
 ## 基本使用
 
 局部与全局using，具体操作与使用见下面案例：
@@ -28,9 +22,9 @@ namespace ns1 {
 
 namespace ns2 {
 #ifdef isNs1 
-    using ns1::func;    /// ns1中的函数
+    using ns1::func;    // ns1中的函数
 #elif isGlobal
-    using ::func; /// 全局中的函数
+    using ::func; // 全局中的函数
 #else
     void func() 
     {
